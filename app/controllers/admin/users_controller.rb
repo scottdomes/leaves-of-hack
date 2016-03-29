@@ -10,6 +10,15 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    if User.destroy(params[:id])
+      flash[:notice] = "User deleted."
+      redirect_to admin_users_path
+    else
+      render :index
+    end
+  end
+
   def update
     @user = User.find(params[:id])
 
