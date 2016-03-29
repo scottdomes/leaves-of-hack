@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :restrict_user_by_role
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page])
   end
 
   protected
