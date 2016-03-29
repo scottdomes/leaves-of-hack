@@ -6,7 +6,7 @@
       <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
     <% end %>
   </small>
-  <% if current_user.admin || session[:admin_id] %>
+  <% if current_user && (current_user.admin || session[:admin_id]) %>
     <small>
       <%= link_to "Admin Center", admin_users_path %>
     </small>
