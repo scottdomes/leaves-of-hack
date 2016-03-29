@@ -10,7 +10,7 @@ class Admin::UsersController < ApplicationController
 
   def restrict_user_by_role
     unless current_user.admin
-      flash[:notice] = "Get outta there! Not authorized."
+      flash[:alert] = "Get outta there! Not authorized."
       redirect_to root_path
     end
   end

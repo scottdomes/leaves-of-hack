@@ -3,10 +3,20 @@
 <hr>
 
 <%= form_tag movies_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+  <p class="search-field">
+    <%= label_tag 'title' %>
+    <%= text_field_tag :search_title, params[:search_title] %>
   </p>
+  <p class="search-field">
+    <%= label_tag 'director' %>
+    <%= text_field_tag :search_dir, params[:search_dir] %>
+  </p>
+  <p class="search-field">
+    <%= label_tag 'director' %>
+    <%= text_field_tag :search_dir, params[:search_dir] %>
+  </p>
+  <%= select_tag(:runtime_in_minutes, options_for_select([["Select Runtime"],["Under 90 Minutes"], ["Between 90 and 120 Minutes"], ["Over 120 minutes"]])) %>
+  <%= submit_tag "Search", :name => nil %>
 <% end %>
 
 <%= paginate @movies %>
