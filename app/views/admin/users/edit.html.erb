@@ -1,0 +1,29 @@
+<%= form_for @user, url: admin_user_path(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div>
+      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :firstname, "First Name" %><br>
+    <%= f.text_field :firstname %>
+  </div>
+  <div>
+    <%= f.label :lastname, "Last Name" %><br>
+    <%= f.text_field :lastname %>
+  </div>
+  <div>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= check_box_tag :admin, "", @user.admin %>
+    <%= label_tag(:admin, "User is admin") %>
+  </div>
+  <div><%= f.submit "Submit" %></div>
+<% end %>

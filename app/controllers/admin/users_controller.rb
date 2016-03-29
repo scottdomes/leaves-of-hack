@@ -6,6 +6,20 @@ class Admin::UsersController < ApplicationController
     @users = User.all.page(params[:page])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      redirect_to admin_users_path(@user)
+    else
+      render :edit
+    end
+  end
+
   protected
 
   def restrict_user_by_role
@@ -13,5 +27,11 @@ class Admin::UsersController < ApplicationController
       flash[:alert] = "Get outta there! Not authorized."
       redirect_to root_path
     end
+  end
+
+  def user_params
+    params.require(:user).permit(
+      :firstname, :lastname, :admin, :email
+      )
   end
 end

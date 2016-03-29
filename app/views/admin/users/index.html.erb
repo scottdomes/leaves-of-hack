@@ -6,4 +6,5 @@
   <h3><%= user.full_name %></h3>
   <h4><%= user.email %></h4>
   <h4><%= "Admin" if user.admin %></h4>
+  <%= link_to "Edit", edit_admin_user_path(user) %>
 <% end %>
