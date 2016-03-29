@@ -14,8 +14,22 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
   end
+
+  factory :movie do
+    title { Faker::Book.title }
+    director { Faker::Book.author }
+    runtime_in_minutes { Faker::Number.between(90, 180) }
+    description { Faker::Book.genre }
+    release_date { Faker::Date.backward(36520) }
+    image { Faker::Placeholdit.image("200x400", 'jpg') }
+  end
 end
 
-100.times do
-  FactoryGirl.create(:user)
+
+# 100.times do
+#   FactoryGirl.create(:user)
+# end
+
+25.times do
+  FactoryGirl.create(:movie)
 end

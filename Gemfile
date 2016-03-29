@@ -30,8 +30,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'kaminari'
 gem 'factory_girl'
-gem 'faker'
-
+gem 'faker', '~> 1.6', '>= 1.6.3'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

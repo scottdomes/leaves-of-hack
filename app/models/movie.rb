@@ -8,7 +8,6 @@ class Movie < ActiveRecord::Base
   validates :director, presence: true
   validates :runtime_in_minutes, numericality: { only_integer: true }
   validates :description, presence: true
-  validates :poster_image_url, presence: true
   validates :release_date, presence: true
   validates_processing_of :image
   validate :image_size_validation
