@@ -3,7 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :movie
 
   validates :user, presence: true
-  validates :movies, presence: true
+  validates :movie, presence: true
   validates :text, presence: true
   validates :rating_out_of_ten, numericality: { only_integer: true }
   validates :rating_out_of_ten, numericality: { greater_than_or_equal_to: 1 }

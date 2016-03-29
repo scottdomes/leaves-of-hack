@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @movie.reviews.build(reivew_params)
+    @review = @movie.reviews.build(review_params)
     @review.user_id = current_user.id
 
     if @review.save
