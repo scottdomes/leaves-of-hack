@@ -6,7 +6,9 @@
 <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
 <p><%= @movie.description %></p>
 
- <hr>
+<hr>
+
+<h3><%= @movie.review_average %>/10</h3>
 
 <h3>Reviews of <em><%= @movie.title %></em></h3>
 <% if current_user %>
