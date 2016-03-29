@@ -11,11 +11,7 @@
     <%= label_tag 'director' %>
     <%= text_field_tag :search_dir, params[:search_dir] %>
   </p>
-  <p class="search-field">
-    <%= label_tag 'director' %>
-    <%= text_field_tag :search_dir, params[:search_dir] %>
-  </p>
-  <%= select_tag(:runtime_in_minutes, options_for_select([["Select Runtime"],["Under 90 Minutes"], ["Between 90 and 120 Minutes"], ["Over 120 minutes"]])) %>
+  <%= select_tag(:search_runtime, options_for_select([["Select Runtime", 0],["Under 90 Minutes", 1], ["Between 90 and 120 Minutes", 2], ["Over 120 minutes", 3]])) %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
