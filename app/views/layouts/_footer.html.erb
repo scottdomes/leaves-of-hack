@@ -6,9 +6,24 @@
       <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
     <% end %>
   </small>
-  <% if current_user.admin %>
+  <% if current_user.admin || session[:admin_id] %>
     <small>
       <%= link_to "Admin Center", admin_users_path %>
     </small>
+    <% if current_user.id == session[:admin_id] %>
+      <small>
+        Log in as 
+        <%= form_tag '/admin/users/change', :method => 'post' do %>
+          <%= number_field_tag :user_id %>
+          <%= submit_tag "Submit", :name => nil %>
+        <% end %>
+      </small>
+    <% else %>
+      <small>Switch back to admin account
+        <%= form_tag '/admin/users/revert', :method => 'post' do %>
+        <%= submit_tag "Revert", :name => nil %>
+        <% end %>
+      </small>
+    <% end %>
   <% end %>
 </footer>
