@@ -28,8 +28,9 @@ class Movie < ActiveRecord::Base
   end
 
   def image_size_validation 
-    if image.size > 0.5 megabytes
+    if image.size > 0.5.megabytes
       errors.add(:image, "should be less than 500kb")
+    end
   end
 
 end
