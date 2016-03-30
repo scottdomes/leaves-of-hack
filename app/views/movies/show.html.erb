@@ -14,6 +14,8 @@
 
 <% if current_user %>
   <% @movie.reviews.each do |review| %>
+    <% user = review.user %>
+    <%= link_to "View #{user.firstname}'s Profile", user_path(user) %>
     <%= render review %>
   <% end %>
 
