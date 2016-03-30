@@ -8,12 +8,8 @@
 
 <%= form_tag movies_path, :method => 'get' do %>
   <p class="search-field">
-    <%= label_tag 'title' %>
-    <%= text_field_tag :search_title, params[:search_title] %>
-  </p>
-  <p class="search-field">
-    <%= label_tag 'director' %>
-    <%= text_field_tag :search_dir, params[:search_dir] %>
+    <%= label_tag 'query', 'Title or Director' %>
+    <%= text_field_tag :query, params[:query] %>
   </p>
   <%= select_tag(:search_runtime, options_for_select([["Select Runtime", 0],["Under 90 Minutes", 1], ["Between 90 and 120 Minutes", 2], ["Over 120 minutes", 3]])) %>
   <%= submit_tag "Search", :name => nil %>
