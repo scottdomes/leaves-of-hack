@@ -3,8 +3,14 @@ class MoviesController < ApplicationController
     if params
       @movies = Movie.where("title like ? AND director like ?", "%#{params[:search_title]}%", "%#{params[:search_dir]}%").page(params[:page])
       if params[:search_runtime]
-        runtime_search = [[0, 999], [0, 90], [90, 120], [120, 999]][params[:search_runtime].to_i] 
-        @movies = @movies.where("runtime_in_minutes BETWEEN #{runtime_search[0]} AND #{runtime_search[1]} ")
+        case params[:search_runtime]
+        when "1"
+          @movies = @movies.short
+        when "2"
+          @movies = @movies.medium
+        when "3"
+          @movies = @movies.long
+        end
       end
     else
       @movies = Movie.all.page(params[:page])

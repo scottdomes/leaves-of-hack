@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
-  scope :short, -> { where(runtime_in_minutes < 90) }
-  scope :medium, -> { where(runtime_in_minutes:  90..120)}
-  scope :long, -> { where(runtime_in_minutes > 120)}
+  scope :short, -> { where("runtime_in_minutes < ?", 90) }
+  scope :medium, -> { where(runtime_in_minutes:  90..120) }
+  scope :long, -> { where("runtime_in_minutes > ?", 120) }
 
   has_many :reviews
 
