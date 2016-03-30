@@ -3,9 +3,15 @@ class SessionsController < ApplicationController
   end
 
   def admin_switch
-    session[:admin_id] = session[:user_id]
-    session[:user_id] = params[:user_id]
-    redirect_to :back
+    user = User.find(params[:user_id]) if User.exists?(params[:user_id])
+    if user && !user.admin
+      session[:admin_id] = session[:user_id]
+      session[:user_id] = params[:user_id]
+      redirect_to :back
+    else
+      flash[:notice] = "No user found. Dummy"
+      redirect_to :back
+    end
   end
 
   def admin_revert

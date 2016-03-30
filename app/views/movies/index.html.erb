@@ -1,5 +1,9 @@
 <h1>Rotten Mangoes</h1>
 <%= link_to "Submit a movie!", new_movie_path %>
+
+<h3>Session user: <%= session[:user_id] %></h3>
+<h3>Admin user: <%= session[:admin_id] %></h3>
+
 <hr>
 
 <%= form_tag movies_path, :method => 'get' do %>
