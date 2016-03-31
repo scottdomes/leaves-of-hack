@@ -1,8 +1,8 @@
-<%= link_to "Back to movie", movie_path(@movie) %><br/>
+<%= link_to "Back to poem", poem_path(@poem) %><br/>
 
-<h2>Write a review of <em><%= @movie.title %></em>.</h2>
+<h2>Write a review of <em><%= @poem.title %></em>.</h2>
 
-<%= form_for([@movie, @review]) do |f| %>
+<%= form_for([@poem, @review]) do |f| %>
   <% if @review.errors.any? %>
     <div>
       <%= pluralize(@review.errors.count, "error") %> prevents the review from being submitted.
