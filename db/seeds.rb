@@ -6,6 +6,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+def poem_generator
+  poem = ""
+  rand(3..12).times do
+    poem += poem_line + "\n"
+  end
+  poem
+end
+
+def poem_line
+  number = rand(0..4)
+  case number
+  when 0
+    Faker::Hacker.noun
+  when 1
+    "#{Faker::Hacker.ingverb} #{Faker::Hacker.noun}"
+  when 2
+    "#{Faker::Hacker.adjective} #{Faker::Hacker.abbreviation} #{Faker::Hacker.verb} #{Faker::Hacker.noun}"
+  when 3
+    Faker::Hacker.say_something_smart
+  when 4
+    Faker::Hipster.word
+  end  
+end
+
 FactoryGirl.define do
   factory :user do
     firstname { Faker::Name.first_name }
@@ -17,15 +41,15 @@ FactoryGirl.define do
 
   factory :poem do
     title { "#{Faker::Hacker.adjective.capitalize} #{Faker::Hacker.noun.capitalize}" }
-    content { "#{Faker::Hacker.adjective.capitalize} #{Faker::Hacker.noun}" }
+    content { poem_generator }
     user_id { User.order("RANDOM()").first.id }
   end
 end
 
 
-# 20.times do
-#   FactoryGirl.create(:user)
-# end
+20.times do
+  FactoryGirl.create(:user)
+end
 
 25.times do
   FactoryGirl.create(:poem)
