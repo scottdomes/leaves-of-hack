@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :admin do
-    resources :users
+    resources :users do
+      member do
+        post :impersonate
+      end
+    end
   end 
 
   namespace :my do
