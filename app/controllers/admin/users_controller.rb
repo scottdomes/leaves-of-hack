@@ -34,7 +34,7 @@ class Admin::UsersController < ApplicationController
   protected
 
   def restrict_user_by_role
-    unless current_user.admin
+    unless current_user && current_user.admin?
       flash[:alert] = "Get outta there! Not authorized."
       redirect_to root_path
     end
