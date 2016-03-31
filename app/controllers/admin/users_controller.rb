@@ -47,7 +47,7 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def impersonating
+  def impersonating?
     if session[:admin_id].present?
       user = User.find(session[:admin_id])
       user.admin?
@@ -61,4 +61,6 @@ class Admin::UsersController < ApplicationController
       :firstname, :lastname, :admin, :email
       )
   end
+
+  helper_method :impersonating?
 end
