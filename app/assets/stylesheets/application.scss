@@ -31,6 +31,10 @@ header {
   nav{
     background-color: $PRIMARY_COLOR;
 
+    .nav-wrapper {
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -76,8 +80,9 @@ header {
     width: 100%;
   }
 
-  .container {
-    margin-top: 50px;
+  .section {
+    position: absolute;
+    top: 10%;
   }
 
   a {
@@ -94,11 +99,15 @@ pre {
 }
 
 @media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
+  .parallax-container {
+
+    h1 {
+      font-size: 3.5em;
+    }
+
+    .section {
+      position: absolute;
+      top: 5%;
+    }
   }
 }
