@@ -1,0 +1,18 @@
+<div class="page-container">
+  <h1 class="page-heading">My Reviews</h1>
+
+  <% @reviews.each do |review| %>
+
+    <div class="row">
+      <div class="col s12 m10">
+        <div class="poem-card card darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Review of <%= link_to review.poem.title, poem_path(review.poem) %> by <%= review.poem.user.full_name %></span>
+            <p><%= review.rating_out_of_ten %></p>
+            <p><%= review.text %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

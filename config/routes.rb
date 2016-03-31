@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   namespace :my do
     resources :poems, only: [:index]
+    resources :reviews, only: [:index]
   end
 
   root to: 'poems#index'
