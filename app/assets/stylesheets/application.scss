@@ -17,10 +17,14 @@
 $PRIMARY_COLOR: #257059;
 $SECONDARY_COLOR: #549431;
 $TERTIARY_COLOR: #2B4B6F;
-$BACKGROUND_COLOR: #AEDE94;
+$BACKGROUND_COLOR: #e6e6e6;
 
 h1, p {
   margin: 0;
+}
+
+body {
+  background-color: $BACKGROUND_COLOR;
 }
 
 header {
@@ -30,11 +34,36 @@ header {
   }
 }
 
+.page-container {
+  position: relative;
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 110px;
+
+  .poem-card {
+    background-color: #6F849C;
+
+    .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+      color: white;
+    }
+
+    .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
+      color: $PRIMARY_COLOR;
+    }
+  }
+}
+
 .page-heading {
   background-color: $SECONDARY_COLOR;
   color: white;
   display: inline-block;
   padding: 5px;
+  padding-left: 20px;
+  position: absolute;
+  left: 0;
+  top: 20px;
 }
 
 .parallax-container {

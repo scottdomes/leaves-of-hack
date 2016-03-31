@@ -20,25 +20,27 @@
   </div>
 </div>
 
-<h1 class="page-heading">All Poems</h1>
+<div class="page-container">
+  <h1 class="page-heading">All Poems</h1>
 
-<% @poems.each do |poem| %>
+  <% @poems.each do |poem| %>
 
-<div class="row">
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title"><%= poem.title %></span>
-        <pre><p><%= poem.content %></p></pre>
-      </div>
-      <div class="card-action">
-        <a href="#">By: <%= "#{poem.user.firstname} #{poem.user.lastname}" %></a>
-        <a href="#">This is a link</a>
+  <div class="row">
+    <div class="col s12 m10">
+      <div class="poem-card card darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= poem.title %></span>
+          <pre><p><%= poem.content %></p></pre>
+        </div>
+        <div class="card-action">
+          <a href="#">By: <%= "#{poem.user.firstname} #{poem.user.lastname}" %></a>
+          <a href="#">This is a link</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<% end %>
-<br>
+  <% end %>
+  <br>
 
-<%= link_to 'New Poem', new_poem_path %>
+  <%= link_to 'New Poem', new_poem_path %>
+</div>
