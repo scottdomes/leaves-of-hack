@@ -31,12 +31,28 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def impersonate
+    @user = User.find(params[:id])
+    session[:admin_id] = session[:user_id]
+    session[:user_id] = @user.id
+    redirect_to admin_users_path
+  end
+
   protected
 
   def restrict_user_by_role
-    unless current_user && current_user.admin?
+    unless current_user && (current_user.admin? || impersonating?)
       flash[:alert] = "Get outta there! Not authorized."
       redirect_to root_path
+    end
+  end
+
+  def impersonating
+    if session[:admin_id].present?
+      user = User.find(session[:admin_id])
+      user.admin?
+    else
+      false
     end
   end
 
