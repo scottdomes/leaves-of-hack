@@ -1,12 +1,10 @@
-<h1>Rotten Mangos</h1>
-
 <%= paginate @users %>
 
 <% @users.each do |user| %>
   <h3><%= user.full_name %></h3>
   <h4><%= user.email %></h4>
   <h4><%= "Admin" if user.admin %></h4>
-  <%= link_to 'Impersonate', impersonate_admin_user_path(user) %>
+  <%= link_to 'Impersonate', impersonate_admin_user_path(user), method: :post, confirm: 'Are you sure you want to impersonate #{user.id}?' %>
   <%= link_to "Edit", edit_admin_user_path(user) %>
   <%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: 'Are you certain you want to delete this user?' } %>
 <% end %>
