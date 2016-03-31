@@ -15,21 +15,17 @@ FactoryGirl.define do
     password { Faker::Internet.password }
   end
 
-  factory :movie do
-    title { Faker::Book.title }
-    director { Faker::Book.author }
-    runtime_in_minutes { Faker::Number.between(90, 180) }
-    description { Faker::Book.genre }
-    release_date { Faker::Date.backward(36520) }
-    image { Faker::Placeholdit.image("200x400", 'jpg') }
+  factory :poem do
+    title { "#{Faker::Hacker.adjective} + " " + #{Faker::Hacker.noun}" }
+    user_id User.order("RANDOM()").first.id
   end
 end
 
 
-# 100.times do
-#   FactoryGirl.create(:user)
-# end
+20.times do
+  FactoryGirl.create(:user)
+end
 
 25.times do
-  FactoryGirl.create(:movie)
+  FactoryGirl.create(:poem)
 end
