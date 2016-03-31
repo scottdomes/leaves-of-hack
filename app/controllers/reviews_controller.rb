@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_filter :load_movie 
+  before_filter :load_poem
   before_filter :restrict_access
 
   def new
@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
   protected
 
-  def load_movie
+  def load_poem
     @poem = Poem.find(params[:poem_id])
   end
 

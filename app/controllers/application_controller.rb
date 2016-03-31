@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     begin
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     rescue ActiveRecord::RecordNotFound
-      @current_user = User.find(session[:admin_id])
+      @current_user = User.find(session[:admin_id]) if session[:admin_id]
     end
   end
 
