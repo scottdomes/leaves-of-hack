@@ -17,7 +17,7 @@
       <tr>
         <td><%= poem.title %></td>
         <td><%= poem.content %></td>
-        <td><%= poem.user %></td>
+        <td><%= "#{poem.user.firstname} #{poem.user.lastname}" %></td>
         <td><%= link_to 'Show', poem %></td>
         <td><%= link_to 'Edit', edit_poem_path(poem) %></td>
         <td><%= link_to 'Destroy', poem, method: :delete, data: { confirm: 'Are you sure?' } %></td>

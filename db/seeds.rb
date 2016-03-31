@@ -16,15 +16,16 @@ FactoryGirl.define do
   end
 
   factory :poem do
-    title { "#{Faker::Hacker.adjective} + " " + #{Faker::Hacker.noun}" }
-    user_id User.order("RANDOM()").first.id
+    title { "#{Faker::Hacker.adjective.capitalize} #{Faker::Hacker.noun.capitalize}" }
+    content { "#{Faker::Hacker.adjective.capitalize} #{Faker::Hacker.noun}" }
+    user_id { User.order("RANDOM()").first.id }
   end
 end
 
 
-20.times do
-  FactoryGirl.create(:user)
-end
+# 20.times do
+#   FactoryGirl.create(:user)
+# end
 
 25.times do
   FactoryGirl.create(:poem)
