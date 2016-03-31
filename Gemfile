@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'rename'
-gem 'materialize-sass'
 
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'

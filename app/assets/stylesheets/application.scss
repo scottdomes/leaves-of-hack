@@ -14,3 +14,12 @@
  *= require_self
  */
 
+$PRIMARY_COLOR: #257059;
+$SECONDARY_COLOR: #549431;
+$TERTIARY_COLOR: #2B4B6F;
+
+header {
+  nav{
+    background-color: $PRIMARY_COLOR;
+  }
+}
