@@ -7,7 +7,7 @@
       <div class="col s12 m10">
         <div class="poem-card card darken-1">
           <div class="card-content white-text">
-            <span class="card-title">Review of <%= link_to review.poem.title, poem_path(review.poem) %> by <%= review.poem.user.full_name %></span>
+            <span class="card-title">Review of <%= link_to review.poem.title, poem_path(review.poem) %> by <%= link_to review.poem.user.full_name, user_path(review.poem.user) %></span>
             <p><%= review.rating_out_of_ten %></p>
             <p><%= review.text %></p>
           </div>
