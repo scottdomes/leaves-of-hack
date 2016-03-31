@@ -1,17 +1,9 @@
+<div class="page-container">
+  <h1 class="page-heading">My Poems</h1>
+
   <% @poems.each do |poem| %>
 
-  <div class="row">
-    <div class="col s12 m10">
-      <div class="poem-card card darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><%= poem.title %></span>
-          <pre><p><%= poem.content %></p></pre>
-        </div>
-        <div class="card-action">
-          <a href="#">By: <%= "#{poem.user.firstname} #{poem.user.lastname}" %></a>
-          <a href="#">Leave a review</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    <%= render partial: "poems/poem", locals: { poem: poem } %>
+
   <% end %>
+</div>
