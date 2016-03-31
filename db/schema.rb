@@ -11,19 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329183635) do
+ActiveRecord::Schema.define(version: 20160331182308) do
 
-  create_table "movies", force: :cascade do |t|
-    t.string   "title"
-    t.string   "director"
-    t.integer  "runtime_in_minutes"
-    t.text     "description"
-    t.string   "poster_image_url"
-    t.datetime "release_date"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image"
+  create_table "poems", force: :cascade do |t|
+    t.string  "title"
+    t.text    "content"
+    t.integer "user_id"
   end
+
+  add_index "poems", ["user_id"], name: "index_poems_on_user_id"
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
