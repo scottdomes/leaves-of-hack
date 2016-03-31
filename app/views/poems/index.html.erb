@@ -22,11 +22,8 @@
 <div class="page-container">
   <h1 class="page-heading">All Poems</h1>
 
-  <% @poems.each do |poem| %>
+  <%= render @poems %>
 
-    <%= render poem %>
-    
-  <% end %>
   <br>
 
   <%= link_to 'New Poem', new_poem_path %>

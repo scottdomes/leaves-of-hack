@@ -1,9 +1,5 @@
 <div class="page-container">
   <h1 class="page-heading">My Poems</h1>
 
-  <% @poems.each do |poem| %>
-
-    <%= render partial: "poems/poem", locals: { poem: poem } %>
-
-  <% end %>
+  <%= render partial: "poems/poem", collection: @poems %>
 </div>
