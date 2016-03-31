@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 
   def admin_revert
     session[:user_id] = session[:admin_id]
+    session[:admin_id] = nil
     redirect_to :back
   end
 
