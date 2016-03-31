@@ -54,3 +54,11 @@ end
 25.times do
   FactoryGirl.create(:poem)
 end
+
+User.create(
+  firstname: "Scott",
+  lastname: "Domes",
+  email: "s@s.com",
+  password: "123123",
+  admin: true
+  )
