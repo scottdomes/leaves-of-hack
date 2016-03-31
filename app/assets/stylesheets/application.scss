@@ -17,6 +17,7 @@
 $PRIMARY_COLOR: #257059;
 $SECONDARY_COLOR: #549431;
 $TERTIARY_COLOR: #2B4B6F;
+$BACKGROUND_COLOR: #AEDE94;
 
 h1, p {
   margin: 0;
@@ -47,7 +48,7 @@ header {
   }
 
   .container {
-    margin-top: 20px;
+    margin-top: 50px;
   }
 
   a {
@@ -57,6 +58,10 @@ header {
   a:hover {
     background-color: $PRIMARY_COLOR;
   }
+}
+
+pre {
+  white-space: pre-wrap;
 }
 
 @media only screen and (max-width : 992px) {
