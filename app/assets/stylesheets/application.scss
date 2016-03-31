@@ -18,8 +18,53 @@ $PRIMARY_COLOR: #257059;
 $SECONDARY_COLOR: #549431;
 $TERTIARY_COLOR: #2B4B6F;
 
+h1, p {
+  margin: 0;
+}
+
 header {
   nav{
     background-color: $PRIMARY_COLOR;
+
+  }
+}
+
+.page-heading {
+  background-color: $SECONDARY_COLOR;
+  color: white;
+  display: inline-block;
+  padding: 5px;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: white;
+
+  .section {
+    width: 100%;
+  }
+
+  .container {
+    margin-top: 20px;
+  }
+
+  a {
+    background-color: $TERTIARY_COLOR;
+  }
+
+  a:hover {
+    background-color: $PRIMARY_COLOR;
+  }
+}
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
   }
 }
