@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
   belongs_to :user
-  belongs_to :movie
+  belongs_to :poem
 
   validates :user, presence: true
   validates :movie, presence: true

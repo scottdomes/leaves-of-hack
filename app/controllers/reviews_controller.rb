@@ -4,15 +4,15 @@ class ReviewsController < ApplicationController
   before_filter :restrict_access
 
   def new
-    @review = @movie.reviews.build
+    @review = @poem.reviews.build
   end
 
   def create
-    @review = @movie.reviews.build(review_params)
+    @review = @poem.reviews.build(review_params)
     @review.user_id = current_user.id
 
     if @review.save
-      redirect_to @movie, notice: "Review created successfully"
+      redirect_to @poem, notice: "Review created successfully"
     else
       render :new
     end
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
   protected
 
   def load_movie
-    @movie = Movie.find(params[:movie_id])
+    @poem = Poem.find(params[:poem_id])
   end
 
   def review_params
