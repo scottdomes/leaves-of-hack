@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :users
   end 
 
+  namespace :my do
+    resources :poems, only: [:index]
+  end
+
   root to: 'poems#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
