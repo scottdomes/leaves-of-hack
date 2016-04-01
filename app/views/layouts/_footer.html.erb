@@ -1,32 +1,24 @@
-<footer>
-  <small>
+<footer class="page-footer">
+  <div class="container">
     <% if current_user %>
-      Signed in as <%= current_user.email %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
-      <% if impersonating? %>
-      but actually <%= User.find(session[:admin_id]).email %>
-      <% end %>
-    <% else %>
-      <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
-    <% end %>
-  </small>
-  <% if current_user && (current_user.admin || impersonating?) %>
-    <small>
-      <%= link_to "Admin Center", admin_users_path %>
-    </small>
-    <% if current_user.id == session[:admin_id] %>
-      <small>
-        Log in as 
-        <%= form_tag '/admin/users/change', :method => 'post' do %>
-          <%= number_field_tag :user_id %>
-          <%= submit_tag "Submit", :name => nil %>
+      <p>
+        Signed in as <%= User.find(current_user).email %>
+        <% if impersonating? %>
+          but actually <%= User.find(session[:admin_id]).email %>
+        </p>
+        <p>
+          Switch back to admin account:
+          <%= form_tag '/admin/users/revert', :method => 'post' do %>
+          <%= submit_tag "Revert", :name => nil %>
+          <% end %>
         <% end %>
-      </small>
-    <% else %>
-      <small>Switch back to admin account
-        <%= form_tag '/admin/users/revert', :method => 'post' do %>
-        <%= submit_tag "Revert", :name => nil %>
-        <% end %>
-      </small>
+      </p>
     <% end %>
-  <% end %>
+    <% if current_user && (current_user.admin || impersonating?) %>
+      <p>
+        <%= link_to "Admin Center", admin_users_path %>
+      </p>
+    <% end %>
+  </div>
 </footer>
+ 
