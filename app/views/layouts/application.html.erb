@@ -18,8 +18,7 @@
         <%= form_tag poems_path, :method => 'get', class: 'center' do %>
           <div class="input-field">
             <%= label_tag "search", raw("<i class='material-icons'>search</i>") %>
-            <%= search_field_tag :search, params[:search] %>
-            <i class="material-icons">close</i>
+            <%= search_field_tag :search, params[:search], placeholder: "Search by keyword" %>
           </div>
         <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
