@@ -104,6 +104,29 @@ pre {
   white-space: pre-wrap;
 }
 
+footer.page-footer {
+  background-color: $PRIMARY_COLOR;
+  padding: 10px 0;
+  color: white;
+
+  .container {
+    width: 80%;
+  }
+
+  p, form {
+    display: inline-block;
+    margin-left: 10px;
+
+    a {
+      color: white;
+    }
+
+    input {
+      background-color: $SECONDARY_COLOR;
+    }
+  }
+}
+
 @media only screen and (max-width : 992px) {
   .parallax-container {
 
