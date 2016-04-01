@@ -4,7 +4,21 @@ class PoemsController < ApplicationController
   # GET /poems
   # GET /poems.json
   def index
-    @poems = Poem.all
+    if params
+      @poems = Poem.where("title like ? OR content like ?", "%#{params[:search]}%", "%#{params[:search]}%").page(params[:page])
+      # if params[:search_runtime]
+      #   case params[:search_runtime]
+      #   when "1"
+      #     @movies = @movies.short
+      #   when "2"
+      #     @movies = @movies.medium
+      #   when "3"
+      #     @movies = @movies.long
+      #   end
+      # end
+    else
+      @poems = Poem.all.page(params[:page])
+    end
   end
 
   # GET /poems/1

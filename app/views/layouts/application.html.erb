@@ -17,8 +17,8 @@
         <a href="#" class="brand-logo"><code>Leaves of Hack</code></a>
         <%= form_tag poems_path, :method => 'get', class: 'center' do %>
           <div class="input-field">
-            <input id="search" type="search" required>
-            <label for="search"><i class="material-icons">search</i></label>
+            <%= label_tag "search", raw("<i class='material-icons'>search</i>") %>
+            <%= search_field_tag :search, params[:search] %>
             <i class="material-icons">close</i>
           </div>
         <% end %>
