@@ -104,6 +104,19 @@ pre {
   white-space: pre-wrap;
 }
 
+#login-form {
+  margin: 10px 0;
+
+  h1, .center-button {
+    text-align: center;
+  }
+
+  form {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
 footer.page-footer {
   background-color: $PRIMARY_COLOR;
   padding: 10px 0;
