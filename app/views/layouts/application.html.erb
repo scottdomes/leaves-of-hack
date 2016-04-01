@@ -14,7 +14,7 @@
   <header>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo"><code>Leaves of Hack</code></a>
+        <a href="<%= root_path %>" class="brand-logo"><code>Leaves of Hack</code></a>
         <%= form_tag poems_path, :method => 'get', class: 'center' do %>
           <div class="input-field">
             <%= label_tag "search", raw("<i class='material-icons'>search</i>") %>
@@ -22,9 +22,9 @@
           </div>
         <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><%= link_to "My Poems", my_poems_path %></li>
-          <li><%= link_to "My Reviews", my_reviews_path %></li>
-          <% if current_user %>
+           <% if current_user %>
+            <li><%= link_to "My Poems", my_poems_path %></li>
+            <li><%= link_to "My Reviews", my_reviews_path %></li>
             <li><%= link_to "Add Poem", new_poem_path %></li>
             <li><%= link_to "Log Out", session_path, method: :delete %></li>
           <% else %>
