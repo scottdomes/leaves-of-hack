@@ -1,5 +1,4 @@
 class Admin::UsersController < ApplicationController
-  helper_method :impersonating?
   before_filter :restrict_user_by_role
 
   def index
@@ -47,14 +46,7 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def impersonating?
-    if session[:admin_id].present?
-      user = User.find(session[:admin_id])
-      user.admin?
-    else
-      false
-    end
-  end
+  
 
   def user_params
     params.require(:user).permit(
