@@ -4,6 +4,8 @@
   <title>Leaves of Hack</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,8 +14,8 @@
   <header>
     <nav>
       <div class="nav-wrapper">
-        <code><a href="#" class="brand-logo">Leaves of Hack</a></code>
-        <%= form_tag poems_path, :method => 'get' do %>
+        <a href="#" class="brand-logo"><code>Leaves of Hack</code></a>
+        <%= form_tag poems_path, :method => 'get', class: 'center' do %>
           <div class="input-field">
             <input id="search" type="search" required>
             <label for="search"><i class="material-icons">search</i></label>
