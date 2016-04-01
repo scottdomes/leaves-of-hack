@@ -100,6 +100,17 @@ header {
   }
 }
 
+#notice {
+  width: 100%;
+  background-color: $TERTIARY_COLOR;
+  color: white;
+  text-align: center;
+
+  p {
+    line-height: 20px;
+  }
+}
+
 pre {
   white-space: pre-wrap;
 }
