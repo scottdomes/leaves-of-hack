@@ -1,10 +1,14 @@
-<h1>Rotten Mangos</h1>
-
-<h3><%= @user.full_name %></h3>
-<h4><%= @user.email %></h4>
-<h4><%= "Admin" if @user.admin %></h4>
-<h3>User reviews (<%= @user.reviews.length %>)</h3>
-<% @user.reviews.each do |review| %>
-  <h4>Review for <%= link_to review.movie.title, movie_path(review.movie) %></h4>
-  <%= render review %>
-<% end %>
+<div class="page-container">
+  <h3 class="page-heading"><%= @user.full_name %></h3>
+  <h4><%= @user.email %></h4>
+  <h4><%= "Admin" if @user.admin %></h4>
+  <h3>Poems (<%= @user.poems.length %>)</h3>
+  <% @user.poems.each do |poem| %>
+    <%= render poem %>
+  <% end %>
+  <h3>User reviews (<%= @user.reviews.length %>)</h3>
+  <% @user.reviews.each do |review| %>
+    <h4>Review for <%= link_to review.movie.title, movie_path(review.movie) %></h4>
+    <%= render review %>
+  <% end %>
+</div>

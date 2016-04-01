@@ -6,7 +6,7 @@
         <pre><p><%= poem.content %></p></pre>
       </div>
       <div class="card-action">
-        <a href="#">By: <%= "#{poem.user.firstname} #{poem.user.lastname}" %></a>
+        <a href="<%= user_path(poem.user) %>">By: <%= "#{poem.user.firstname} #{poem.user.lastname}" %></a>
         <%= link_to "Leave a Review", new_poem_review_path(poem) %>
       </div>
     </div>
