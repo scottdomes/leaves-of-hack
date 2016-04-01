@@ -9,13 +9,13 @@
 def poem_generator
   poem = ""
   rand(3..12).times do
-    poem += poem_line + "\n"
+    poem += prefixer + poem_line + "\n"
   end
   poem
 end
 
 def poem_line
-  number = rand(0..4)
+  number = rand(0..8)
   case number
   when 0
     Faker::Hacker.noun
@@ -24,10 +24,38 @@ def poem_line
   when 2
     "#{Faker::Hacker.adjective} #{Faker::Hacker.abbreviation} #{Faker::Hacker.verb} #{Faker::Hacker.noun}"
   when 3
-    Faker::Hacker.say_something_smart
+    "#{Faker::Company.buzzword} #{Faker::Company.buzzword}"
   when 4
     Faker::Hipster.word
-  end  
+  when 5
+    "#{Faker::Hacker.adjective} #{Faker::Team.creature}"
+  when 6
+    "#{Faker::Hacker.abbreviation}... #{Faker::Hacker.noun}"
+  when 7
+    "#{Faker::Hacker.noun} is... "
+  when 8
+    "#{Faker::Hacker.ingverb} #{Faker::Hacker.noun} is #{Faker::Hacker.adjective}"
+  end
+end
+
+def prefixer
+  number = rand(0..10)
+  case number
+  when 5
+    "Perhaps "
+  when 6
+    "Maybe "
+  when 7
+    "Sometimes "
+  when 8
+    "I feel "
+  when 9
+    "I am "
+  when 10
+    "See "
+  else
+    ""
+  end
 end
 
 FactoryGirl.define do
