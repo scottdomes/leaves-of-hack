@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-
+  helper_method :impersonating?
   before_filter :restrict_user_by_role
 
   def index
@@ -62,5 +62,4 @@ class Admin::UsersController < ApplicationController
       )
   end
 
-  helper_method :impersonating?
 end
