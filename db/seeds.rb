@@ -39,7 +39,7 @@ def poem_line
 end
 
 def prefixer
-  number = rand(0..10)
+  number = rand(0..15)
   case number
   when 5
     "Perhaps "
@@ -53,6 +53,16 @@ def prefixer
     "I am "
   when 10
     "See "
+  when 11
+    "As "
+  when 12
+    "He says "
+  when 13
+    "She said "
+  when 14
+    "Obviously "
+  when 15
+    "Always "
   else
     ""
   end
@@ -68,7 +78,7 @@ FactoryGirl.define do
   end
 
   factory :poem do
-    title { "#{Faker::Hacker.adjective.capitalize} #{Faker::Hacker.noun.capitalize}" }
+    title { poem_line }
     content { poem_generator }
     user_id { User.order("RANDOM()").first.id }
   end
